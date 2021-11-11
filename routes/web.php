@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', 'FumettiController');
+Route::resource('fumetties', 'FumettiController');

@@ -51,7 +51,7 @@ class FumettiController extends Controller
     {
         $fumetti = Fumetti::findorFail($id);
 
-        return view('fumetties.show', compact('team'));
+        return view('fumetties.show', compact('fumetti'));
     }
 
     /**
