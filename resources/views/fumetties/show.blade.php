@@ -14,7 +14,6 @@
            <div class="col-8">
                <h2>{{$fumetti->author}}</h2>
                <p>{{$fumetti->description}}</p>
-
            </div>
        </div>
        

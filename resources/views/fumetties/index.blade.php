@@ -18,7 +18,7 @@
                <tbody>
                    @forelse ($fumetties as $fumetti)
                        <tr>
-                           <td>{{$fumetti->title}}</td>
+                           <td><a href="{{route('fumetties.show', $fumetti->id)}}">{{$fumetti->title}}</a></td>
                            <td>{{$fumetti->author}}</td>
                            <td>{{$fumetti->description}}</td>
                        </tr>
