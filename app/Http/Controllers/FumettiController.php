@@ -47,10 +47,8 @@ class FumettiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Fumetti $fumetti)
     {
-        $fumetti = Fumetti::findorFail($id);
-
         return view('fumetties.show', compact('fumetti'));
     }
 
