@@ -12,12 +12,19 @@ class FumettiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $fumetties = Fumetti::all();
         $title = "I fumetti";
 
-        return view('fumetties.index', compact('fumetties', 'title'));
+        $search = $request->query('search');
+
+        if($search != null){
+            $fumetties = Fumetti::where('title', 'LIKE', '$search%');
+        }
+        
+
+        return view('fumetties.index', compact('fumetties', 'title', 'search'));
     }
 
     /**

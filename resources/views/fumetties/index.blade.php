@@ -7,6 +7,14 @@
 @section('main-content')
        <h1 class="card-title mb-3">Lista fumetti</h1>
        <div class="table-wrapper p-5">
+           
+        <form method="GET">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Cerca fumetto" name="search">
+              <button class="btn btn-primary" type="submit">Cerca</button>
+            </div>
+        </form>
+
            <table class="table p-5">
                <thead>
                    <tr>
