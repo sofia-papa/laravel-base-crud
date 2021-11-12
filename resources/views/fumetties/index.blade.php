@@ -30,7 +30,6 @@
                            <td>{{$fumetti->author}}</td>
                            <td>{{$fumetti->description}}</td>
                        </tr>
-                       
                    @empty
                        <tr>
 
