@@ -17,14 +17,14 @@ class FumettiController extends Controller
         $fumetties = Fumetti::all();
         $title = "I fumetti";
 
-        $search = $request->query('search');
+       /*  $search = $request->query('search');
 
         if($search != null){
             $fumetties = Fumetti::where('title', 'LIKE', '$search%');
         }
-        
+         */
 
-        return view('fumetties.index', compact('fumetties', 'title', 'search'));
+        return view('fumetties.index', compact('fumetties', 'title'));
     }
 
     /**
@@ -34,7 +34,7 @@ class FumettiController extends Controller
      */
     public function create()
     {
-        //
+        return view('fumetties.create');
     }
 
     /**
@@ -45,7 +45,29 @@ class FumettiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        /* dd($data); */
+
+        //Metodo manuale//
+
+        $fumetti = new Fumetti();
+        /* $fumetti->title = $data['title'];
+        $fumetti->author = $data['author'];
+        $fumetti->description = $data['description'];
+        $fumetti->url = $data['url'];  */
+
+        //Metodo create//
+        /* $fumetti = Fumetti::create($data);
+        anche qui servono i fillables */
+
+        //Metodo fill//
+
+        $fumetti->fill($data);
+
+        $fumetti->save();
+
+        return redirect()->route('fumetties.show', $fumetti);
+        /* dd($fumetti); */
     }
 
     /**
