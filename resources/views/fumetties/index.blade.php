@@ -29,10 +29,11 @@
                            <td><a href="{{route('fumetties.show', $fumetti->id)}}">{{$fumetti->title}}</a></td>
                            <td>{{$fumetti->author}}</td>
                            <td>{{$fumetti->description}}</td>
+                           <td><a href="{{route('fumetties.edit', $fumetti->id)}}" class="btn btn-secondary">Modifica</a></td>
                        </tr>
                    @empty
                        <tr>
-
+                          <td colspan="5" class="text-center">Non ho trovato ospiti con questo nome</td>
                        </tr>
                    @endforelse
                </tbody>

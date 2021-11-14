@@ -14,7 +14,7 @@ class FumettiController extends Controller
      */
     public function index(Request $request)
     {
-        $fumetties = Fumetti::all();
+        $fumetties = Fumetti::orderBy('title', 'asc')->get();
         $title = "I fumetti";
 
        /*  $search = $request->query('search');
@@ -32,9 +32,10 @@ class FumettiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Fumetti $fumetti)
     {
-        return view('fumetties.create');
+        $fumetti = new Fumetti();
+        return view('fumetties.create', compact('guest','request'));
     }
 
     /**
@@ -87,9 +88,9 @@ class FumettiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, Fumetti $fumetti)
     {
-        //
+        return view('fumetties.edit', compact('fumetti', 'request'));
     }
 
     /**
@@ -99,9 +100,14 @@ class FumettiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Fumetti $fumetti)
     {
-        //
+        $data = $request->all();
+        $fumetti->update($data);
+
+        $fumetti->save();
+
+        return redirect()->route('fumetties.show', $fumetti);
     }
 
     /**

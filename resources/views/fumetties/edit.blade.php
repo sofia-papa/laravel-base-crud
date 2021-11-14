@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Creazione nuovo ospite')
+@section('title', 'Modifica nuovo fumetto')
 
 @section('main-section-id', 'fumetti-create')
 
