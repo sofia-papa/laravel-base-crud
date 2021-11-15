@@ -30,6 +30,16 @@
                            <td>{{$fumetti->author}}</td>
                            <td>{{$fumetti->description}}</td>
                            <td><a href="{{route('fumetties.edit', $fumetti->id)}}" class="btn btn-secondary">Modifica</a></td>
+
+                           <td>
+                               <form method="POST" action="{{route('fumetties.destroy', $fumetti)}}">
+                                   @csrf
+                                   @method('DELETE')
+                                   <button type="submit">Rimuovi</button>
+                               </form>
+
+
+                           </td>
                        </tr>
                    @empty
                        <tr>
